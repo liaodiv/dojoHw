@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 id="greeting">Hello</h1>
+
+<script src="lib/dojo.js.uncompressed.js" data-dojo-config="async:true"></script>
+<script>
+    require([
+        'dojo/dom',
+        'dojo/dom-construct'
+    ],function (dom,domConstruct) {
+        var greetingNode =dom.byId('greeting');
+        domConstruct.place('<em> Dojo!</em>',greetingNode);
+    })
+
+    require(['src/myModule'],function (myMoudule) {
+        myMoudule.setText('greeting','Hello Dojo!111');
+
+        setTimeout(function () {
+            myMoudule.restoreText('greeting')
+        },3000);
+    })
+</script>
+</body>
+
+</html>
