@@ -5,9 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<h1 id="greeting">Hello</h1>
+<div>
+    <h3>liao</h3>
+    <img src="./widget/images/mfc.PNG"/>
+    <p>he is a good boy oooooooooo-------</p>
+</div>
 
-<script src="lib/dojo.js.uncompressed.js" data-dojo-config="async:true"></script>
+<script>
+    dojoConfig ={
+        has:{
+            "dojo-firebug":true
+        },
+        parseOnload:false,
+        async:true
+    };
+</script>
+<script src="lib/dojo.js.uncompressed.js" ></script>
 <script>
     require([
         'dojo/dom',
@@ -23,6 +36,11 @@
         setTimeout(function () {
             myMoudule.restoreText('greeting')
         },3000);
+    })
+
+    require(['src/makeClass'],function (shape) {
+        console.log(shape);
+
     })
 </script>
 </body>
