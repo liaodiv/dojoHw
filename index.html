@@ -6,9 +6,11 @@
 </head>
 <body>
 <div>
-    <h3>liao</h3>
-    <img src="./widget/images/mfc.PNG"/>
-    <p>he is a good boy oooooooooo-------</p>
+    <div id="authorContainer">
+    <h3 data-dojo-attach-point="nameNode">${name}</h3>
+    <img class="${baseClass}Avatar" data-dojo-attach-point="avatarNode" src="./widget/images/mfc.PNG"/>
+    <p data-dojo-attach-point="bioNode">${!bio}he is a good boy oooooooooo-------</p>
+    </div>
 </div>
 
 <script>
@@ -21,7 +23,9 @@
     };
 </script>
 <script src="lib/dojo.js.uncompressed.js" ></script>
+<script src="lib/dijit.js.uncompressed.js"></script>
 <script>
+    require(["dojo/request","dojo/dom","dojo/_base/array","myApp/widget"])
   /*  require([
         'dojo/dom',
         'dojo/dom-construct'
