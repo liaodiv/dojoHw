@@ -8,20 +8,20 @@ define(["dojo/_base/declare",
         "dojo/mouse",
         "dojo/on",
         "dijit/_WidgetBase",
-        "dijit/_TemplateMixin",
-        "dojo/text!./../index.html"],
+        "dijit/_TemplatedMixin",
+        "dojo/text!./customWidget.html"],
     function (declare, baseFx, lang, domStyle, mouse, on , _WidgetBase,_TemplateMixin,template) {
     return declare([_WidgetBase,_TemplateMixin],{
 
             name:"No Name",
 
-            avator: require.toUrl("./widget/images/mfc.PNG"),
+            avatar: require.toUrl("./widget/images/mfc.PNG"),
 
             bio:"",
 
             templateString: template,
 
-            baseClass:"autherWidget",
+            baseClass:"authorWidget",
 
             mouseAnim: null,
 
@@ -57,7 +57,8 @@ define(["dojo/_base/declare",
                 }).play();
             },
 
-            _setAvatorAttr:function (imagePath) {
+            _setAvatarAttr:function (imagePath) {
+                console.log(imagePath);
 
                 if(imagePath != ""){
                     this._set("avatar",imagePath);
