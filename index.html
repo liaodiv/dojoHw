@@ -23,9 +23,17 @@
     };
 </script>
 <script src="lib/dojo.js.uncompressed.js" ></script>
-<script src="lib/dijit.js.uncompressed.js"></script>
+<script src="lib/dijit-all.js"></script>
 <script>
-    require(["dojo/request","dojo/dom","dojo/_base/array","myApp/widget"])
+    require(["dojo/request","dojo/dom","dojo/_base/array","src/AutherWidget",
+          "dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
+        request("./data/data.json",{
+            handleAs:"json"
+        }).then(function (authors) {
+            console.log(authors);
+        })
+
+    })
   /*  require([
         'dojo/dom',
         'dojo/dom-construct'

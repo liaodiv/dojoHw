@@ -8,7 +8,8 @@ define(["dojo/_base/declare",
         "dojo/mouse",
         "dojo/on",
         "dijit/_WidgetBase",
-        "dijit/_TemplateMixin"],
+        "dijit/_TemplateMixin",
+        "dojo/text!./../index.html"],
     function (declare, baseFx, lang, domStyle, mouse, on , _WidgetBase,_TemplateMixin,template) {
     return declare([_WidgetBase,_TemplateMixin],{
 
