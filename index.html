@@ -7,45 +7,47 @@
 <body>
 <div>
     <div id="authorContainer">
-    <h3 data-dojo-attach-point="nameNode">${name}</h3>
+    <!--<h3 data-dojo-attach-point="nameNode">${name}</h3>
     <img class="${baseClass}Avatar" data-dojo-attach-point="avatarNode" src="./widget/images/mfc.PNG"/>
-    <p data-dojo-attach-point="bioNode">${!bio}he is a good boy oooooooooo-------</p>
+    <p data-dojo-attach-point="bioNode">${!bio}he is a good boy oooooooooo-&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
     </div>
 </div>
 
 <script>
     dojoConfig ={
-        has:{
-            "dojo-firebug":true
-        },
-        parseOnload:false,
-        async:true
+
+        async:true,
+        baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/lib/",
+        packages:[
+            {
+                name: "dojo",
+                location: "dojo"
+            },
+            {
+                name:"dijit",
+                location:"dijit"
+            },
+            {
+                name:"dojox",
+                location:"/dojox"
+            },
+            {
+                name:"util",
+                location:"/util"
+            },
+            {
+                name:"src",
+                location:"/src"
+            }
+            ]
     };
 </script>
-<script src="lib/dojo.js.uncompressed.js" ></script>
-<script src="lib/dijit.js.uncompressed.js"></script>
+<script src="./lib/dojo/dojo.js"></script>
 <script>
-    require(["dojo/request","dojo/dom","dojo/_base/array","myApp/widget"])
-  /*  require([
-        'dojo/dom',
-        'dojo/dom-construct'
-    ],function (dom,domConstruct) {
-        var greetingNode =dom.byId('greeting');
-        domConstruct.place('<em> Dojo!</em>',greetingNode);
+    require(["dojo/request","dojo/dom","dojo/_base/array","dijit/_WidgetBase"],function () {
+
     })
 
-    require(['src/myModule'],function (myMoudule) {
-        myMoudule.setText('greeting','Hello Dojo!111');
-
-        setTimeout(function () {
-            myMoudule.restoreText('greeting')
-        },3000);
-    })
-
-    require(['src/makeClass'],function (shape) {
-        console.log(shape);
-
-    })*/
 </script>
 </body>
 
