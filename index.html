@@ -7,15 +7,12 @@
 <body>
 <div>
     <div id="authorContainer">
-    <!--<h3 data-dojo-attach-point="nameNode">${name}</h3>
-    <img class="${baseClass}Avatar" data-dojo-attach-point="avatarNode" src="./widget/images/mfc.PNG"/>
-    <p data-dojo-attach-point="bioNode">${!bio}he is a good boy oooooooooo-&#45;&#45;&#45;&#45;&#45;&#45;</p>-->
+
     </div>
 </div>
 
 <script>
     dojoConfig ={
-
         async:true,
         baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/lib/",
         packages:[
@@ -37,14 +34,18 @@
             },
             {
                 name:"src",
-                location:"/src"
+                location:"../src"
             }
             ]
     };
 </script>
 <script src="./lib/dojo/dojo.js"></script>
 <script>
-    require(["dojo/request","dojo/dom","dojo/_base/array","dijit/_WidgetBase"],function () {
+    require(["dojo/request","dojo/dom","dojo/_base/array","src/getTemplate"],
+        function (request,dom,arrayUtil,testWidget) {
+        var authorContainer = dom.byId("authorContainer");
+
+        var widget = new testWidget().placeAt(authorContainer);
     })
 
 </script>
