@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="widget/custom.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 <div>
-    <div id="authorContainer">
-        <span class="icon-camera"></span>
-        <span class="icon-diamonds"></span>
-
-    </div>
-    <div id="customContainer"></div>
+    <!--小组件容器-->
+    <div id="custom-container"></div>
 </div>
 
 <script>
     dojoConfig ={
         async:true,
-        baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/lib/",
+        baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/include/",
         packages:[
             {
                 name: "dojo",
@@ -44,24 +40,16 @@
             ]
     };
 </script>
-<script src="./lib/dojo/dojo.js"></script>
+<script src="./include/dojo/dojo.js"></script>
 <script>
- /*   require(["dojo/request","dojo/dom","dojo/_base/array","src/getTemplate"],
-        function (request,dom,arrayUtil,testWidget) {
-        var authorContainer = dom.byId("authorContainer");
-
-        var widget = new testWidget().placeAt(authorContainer);
 
 
-
-        })*/
-
-    require(["dojo/request","dojo/dom","dojo/_base/array","src/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
-        request("./data/data.json", {
+    require(["dojo/request","dojo/dom","dojo/_base/array","js/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
+        request("./admin/data.json", {
             handleAs: "json"
         }).then(function (datas) {
             console.log(datas);
-            var customContainer = dom.byId("customContainer");
+            var customContainer = dom.byId("custom-container");
 
             arrayUtil.forEach(datas,function (data) {
                 var widget =new AuthorWidget(data).placeAt(customContainer);
