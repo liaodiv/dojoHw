@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <!--小组件容器-->
+    <div id="custom-container"></div>
+</div>
+
+<script>
+    dojoConfig ={
+        async:true,
+        baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/include/",
+        packages:[
+            {
+                name: "dojo",
+                location: "dojo"
+            },
+            {
+                name:"dijit",
+                location:"dijit"
+            },
+            {
+                name:"dojox",
+                location:"/dojox"
+            },
+            {
+                name:"util",
+                location:"/util"
+            },
+            {
+                name:"src",
+                location:"../src"
+            }
+        ]
+    };
+</script>
+
+<script src="./include/dojo/dojo.js"></script>
+<script>
+
+
+    require(["dojo/request","dojo/dom","dojo/_base/array","js/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
+        request("./admin/data.json", {
+            handleAs: "json"
+        }).then(function (datas) {
+            console.log(datas);
+            var customContainer = dom.byId("custom-container");
+
+            arrayUtil.forEach(datas,function (data) {
+                var widget =new AuthorWidget(data).placeAt(customContainer);
+            })
+        })
+    })
+
+
+
+</script>
+</body>
+
+</html>

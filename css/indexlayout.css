@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    width: 100%;
+}
+#left-nav{
+    background-color: #16a6b2;
+    width: 15%;
+    height: 100%;
+    float: left;
+}
+#main{
+    float: left;
+    height: 100%;
+    width: 85%;
+}
+#main-head{
+    height: 60%;
+    background-color: azure;
+    width: 100%;
+}
+#main-foot{
+    height: 40%;
+    background-color: #cccccc;
+    width: 100%;
+}
+.clearfix:after{
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+}
+#title{
+   /* text-align: center;*/
+    margin-top: 20px;
+}
+.title-font{            /*标题字体*/
+    font-size: 1cm;
+    color:#FFFFFF;
+}
+a {                     /*字体a标签容器*/
+  /*  text-align: center;*/
+    color:#FFFFFF;
+}
+#nav-href{
+    margin:60px 30px;
+}
+.null{
+    margin: 0 20px;
+    height: 20px;
+}
+
+.title-center{
+    text-align: center;
+}
+
+#nav-href li{
+    list-style: none;  /*去掉li前的圆点*/
+    border-radius: 4px;
+}
+#nav-href li:hover{
+    background-color: #00FFFF;
+}
+
+#nav-href label{
+    font-size: 10px;
+    color: #ffffff;
+    opacity: 0.7;
+
+}
+
+.main-title h3{
+    padding: 30px;
+}
+
+#main-content{
+    width: 100%;
+}
+
+#main-content .main-item{
+    display: inline-block;
+    width: 24%;
+    box-sizing: border-box;
+    padding: 30px;
+
+}
+#main-content h2{
+    display: inline;
+}
+.main-item a{
+    color: #000000;
+    font-size: 30px;
+}

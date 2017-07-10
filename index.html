@@ -3,62 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="widget/custom.css" rel="stylesheet">
-    <link href="style.css" rel="stylesheet">
+    <link href="./css/indexlayout.css" rel="stylesheet">
 </head>
 <body>
-<div>
-    <div id="authorContainer">
-        <span class="icon-camera"></span>
-        <span class="icon-diamonds"></span>
+<div id="left-nav">
+    <div id="title">
+        <div class="title-center">
+        <a class="title-font">test</a>
+        <br>
+        <a>other infomation</a>
+        </div>
+        <div id="nav-href">
+
+        </div>
+    </div>
+    </div>
+<div id="main">
+<div id="main-head" class="clearfix">
+    <div class="main-title">
+        <h3>Typeface</h3>
+    </div>
+    <div id="main-content">
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+           <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+             <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+        </p>
+        <p class="main-item">
+            <label>HELVETICA NEUE THIN</label>
+            <a>Abcde</a>
+
+        </p>
 
     </div>
-    <div id="customContainer"></div>
 </div>
-
+<div id="main-foot">footer</div>
+</div>
 <script>
-    dojoConfig ={
-        async:true,
-        baseUrl:location.pathname.replace(/\/[^/]*$/, '')+"/lib/",
-        packages:[
+    dojoConfig = {
+        async: true,
+        baseUrl: location.pathname.replace(/\/[^/]*$/, '') + "/include/",
+        packages: [
             {
                 name: "dojo",
                 location: "dojo"
             },
             {
-                name:"dijit",
-                location:"dijit"
+                name: "dijit",
+                location: "dijit"
             },
             {
-                name:"dojox",
-                location:"/dojox"
+                name: "dojox",
+                location: "/dojox"
             },
             {
-                name:"util",
-                location:"/util"
+                name: "util",
+                location: "/util"
             },
             {
-                name:"src",
-                location:"../src"
+                name: "src",
+                location: "../src"
             }
         ]
-    };
+    }
 </script>
-
-<script src="./lib/dojo/dojo.js"></script>
-
+<script src="./include/dojo/dojo.js"></script>
 <script>
 
 
-    require(["dojo/request","dojo/dom","dojo/_base/array","src/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
-        request("./data/data.json", {
+    require(["dojo/request","dojo/dom","dojo/_base/array","js/navwidget","dojo/domReady!"],function (request, dom, arrayUtil, navwidget) {
+        request("./admin/nav.json", {
             handleAs: "json"
         }).then(function (datas) {
             console.log(datas);
-            var customContainer = dom.byId("customContainer");
+            var navContainer = dom.byId("nav-href");
 
             arrayUtil.forEach(datas,function (data) {
-                var widget =new AuthorWidget(data).placeAt(customContainer);
+                var widget =new navwidget(data).placeAt(navContainer);
             })
         })
     })
@@ -67,5 +111,4 @@
 
 </script>
 </body>
-
 </html>

@@ -9,14 +9,13 @@ define(["dojo/_base/declare",
         "dojo/on",
         "dijit/_WidgetBase",
         "dijit/_TemplatedMixin",
-        "dojo/text!./customWidget.html"],
+        "dojo/text!../templates/customWidget.html"],
     function (declare, baseFx, lang, domStyle, mouse, on , _WidgetBase,_TemplateMixin,template) {
     return declare([_WidgetBase,_TemplateMixin],{
 
             name:"No Name",
 
-            avatar: require.toUrl("./widget/images/mfc.PNG"),
-
+            avatar: "",
             bio:"",
 
             templateString: template,
@@ -39,7 +38,12 @@ define(["dojo/_base/declare",
                     on(domNode, mouse.enter ,lang.hitch(this, "_changeBackground",this.mouseBackgroundColor)),
                     on(domNode, mouse.leave ,lang.hitch(this, "_changeBackground", this.baseBackgroundColor))
                 )
+
             },
+
+              /**
+              * @param {string newColor} 新设置颜色
+              */
 
             _changeBackground:function (newColor) {
                 if(this.mouseAnim){
@@ -57,6 +61,11 @@ define(["dojo/_base/declare",
                 }).play();
             },
 
+
+             /**
+             * @param {string imagePath } 图片路径
+             */
+
             _setAvatarAttr:function (imagePath) {
                 console.log(imagePath);
 
@@ -65,6 +74,9 @@ define(["dojo/_base/declare",
 
                     this.avatarNode.src = imagePath;  //link to html
                 }
+            },
+            _testclick:function () {
+                console.log(this.bioNode);
             }
 
         });

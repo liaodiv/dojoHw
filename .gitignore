@@ -1,3 +1,6 @@
 /.idea/
 
-/lib/
+
+/include/
+
+/test/
