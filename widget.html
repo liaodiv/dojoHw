@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="test/custom.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
@@ -45,7 +45,7 @@
 <script>
 
 
-    require(["dojo/request","dojo/dom","dojo/_base/array","js/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
+    require(["dojo/request","dojo/dom","dojo/_base/array","test/AuthorWidget","dojo/domReady!"],function (request, dom, arrayUtil, AuthorWidget) {
         request("./admin/data.json", {
             handleAs: "json"
         }).then(function (datas) {

@@ -1,44 +1,53 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html,body{
+/*
+ *布局思路
+ *使导航栏左浮动，并设置宽度15%，
+ *main标签使用伪元素清除浮动
+ *main head高60%,foot高40%
+ */
+html,body {
     height: 100%;
     width: 100%;
 }
-#left-nav{
+#left-nav {
     background-color: #16a6b2;
     width: 15%;
     height: 100%;
     float: left;
 }
-#main{
+#main {
     float: left;
     height: 100%;
     width: 85%;
 }
-#main-head{
+#main-head {
     height: 60%;
     background-color: azure;
     width: 100%;
 }
-#main-foot{
+#main-foot {
     height: 40%;
     background-color: #cccccc;
     width: 100%;
 }
-.clearfix:after{
+
+.clearfix:after {
     content: ".";
     display: block;
     height: 0;
     visibility: hidden;
     clear: both;
 }
-#title{
+
+#title {
    /* text-align: center;*/
     margin-top: 20px;
 }
-.title-font{            /*标题字体*/
+
+.title-font {            /*标题字体*/
     font-size: 1cm;
     color:#FFFFFF;
 }
@@ -46,52 +55,96 @@ a {                     /*字体a标签容器*/
   /*  text-align: center;*/
     color:#FFFFFF;
 }
-#nav-href{
+#nav-href {
     margin:60px 30px;
 }
-.null{
+
+/*空标签占位符*/
+.null {
     margin: 0 20px;
     height: 20px;
 }
 
-.title-center{
+.title-center {
     text-align: center;
 }
 
-#nav-href li{
-    list-style: none;  /*去掉li前的圆点*/
+#nav-href li {
+    list-style: none;
     border-radius: 4px;
 }
-#nav-href li:hover{
+#nav-href li:hover {
     background-color: #00FFFF;
 }
 
-#nav-href label{
+#nav-href label {
     font-size: 10px;
     color: #ffffff;
     opacity: 0.7;
 
 }
 
-.main-title h3{
-    padding: 30px;
+.main-title h3 {
+    padding: 50px 30px;
 }
 
-#main-content{
+#main-content {
+    width: 100%;
+}
+.main-content {
     width: 100%;
 }
 
-#main-content .main-item{
+
+#main-content p {
     display: inline-block;
     width: 24%;
     box-sizing: border-box;
     padding: 30px;
 
 }
-#main-content h2{
+#main-content h2 {
     display: inline;
 }
-.main-item a{
+.main-item a {
     color: #000000;
     font-size: 30px;
+    display:block;
 }
+
+.main-item label {
+    font-size: 5px;
+    color: #00a3ef;
+}
+
+#main-foot {
+    background-color: #ffffff;
+}
+
+.foot-title {
+    padding-top: 50px;
+    padding-left: 30px;
+
+}
+.foot-content {
+    padding-top: 50px;
+}
+
+.foot-content .foot-item {
+    width: 45%;
+    display: inline-block;
+}
+
+.foot-item label {
+    font-size: 10px;
+}
+
+.foot-content a {
+    color: midnightblue;
+    display: block;
+    font-size: 30px;
+}
+
+
+
+

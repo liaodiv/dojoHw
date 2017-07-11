@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link href="./css/indexlayout.css" rel="stylesheet">
+
 </head>
 <body>
+<!--左导航栏-->
 <div id="left-nav">
     <div id="title">
         <div class="title-center">
@@ -17,75 +19,56 @@
 
         </div>
     </div>
-    </div>
+</div>
+<!--导航栏结束-->
+
+<!--主页面-->
 <div id="main">
-<div id="main-head" class="clearfix">
-    <div class="main-title">
-        <h3>Typeface</h3>
-    </div>
-    <div id="main-content">
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-           <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-             <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
-        </p>
-        <p class="main-item">
-            <label>HELVETICA NEUE THIN</label>
-            <a>Abcde</a>
+     <div id="main-head" class="clearfix">
+     </div>
 
-        </p>
-
-    </div>
+      <div id="main-foot">
+          <!--<div id="foot-title">
+              <h3>Hierachy</h3>
+              <div class="foot-content">
+                  <div class="foot-item">
+                      <label>HEADING1</label>
+                      <a>Helvetica Neue Thin 40px</a>
+                  </div>
+                  <div class="foot-item">
+                      <label>HEADING1 EMPHASIS</label>
+                      <a>Helvetica Neue Thin 40px</a>
+                  </div>
+              </div>
+          </div>-->
+      </div>
 </div>
-<div id="main-foot">footer</div>
-</div>
+<!--主页面结束-->
 <script>
     dojoConfig = {
         async: true,
-        baseUrl: location.pathname.replace(/\/[^/]*$/, '') + "/include/",
+        isDebug:1,
+        baseUrl: location.pathname.replace(/\/[^/]*$/, '') + '/include/',
         packages: [
             {
-                name: "dojo",
-                location: "dojo"
+                name: 'dojo',
+                location: 'dojo'
             },
             {
-                name: "dijit",
-                location: "dijit"
+                name: 'dijit',
+                location: 'dijit'
             },
             {
-                name: "dojox",
-                location: "/dojox"
+                name: 'dojox',
+                location: '/dojox'
             },
             {
-                name: "util",
-                location: "/util"
+                name: 'util',
+                location: '/util'
             },
             {
-                name: "src",
-                location: "../src"
+                name: 'js',
+                location: '../js'
             }
         ]
     }
@@ -93,19 +76,52 @@
 <script src="./include/dojo/dojo.js"></script>
 <script>
 
-
-    require(["dojo/request","dojo/dom","dojo/_base/array","js/navwidget","dojo/domReady!"],function (request, dom, arrayUtil, navwidget) {
-        request("./admin/nav.json", {
-            handleAs: "json"
+    require(['dojo/request','dojo/dom','dojo/_base/array','js/navwidget','js/maincontent.js','js/footwidget','dojo/domReady!'],
+        function (request, dom, arrayUtil,navwidget,maincontent,footwidget) {
+        request('./admin/nav.json', {
+            handleAs: 'json'
         }).then(function (datas) {
             console.log(datas);
-            var navContainer = dom.byId("nav-href");
-
+            var navContainer = dom.byId('nav-href');
             arrayUtil.forEach(datas,function (data) {
-                var widget =new navwidget(data).placeAt(navContainer);
+                var widget = new navwidget(data).placeAt(navContainer);
+            })
+
+        })
+
+        request('./admin/maindata.json', {
+            handleAs: 'json'
+        }).then(function (datamain) {
+            console.log(datamain);
+            var mainContainer = dom.byId('main-head');
+            console.log(mainContainer)
+            /*arrayUtil.forEach(datas, function (datas) {*/
+            var mainwidget = new maincontent(datamain).placeAt(mainContainer);
+            // })
+        })
+
+        request('./admin/footdata.json',{
+            handleAs:'json'
+        }).then(function (footdatas) {
+            var footContainer = dom.byId('main-foot')
+
+            var fowidget = new footwidget(footdatas).placeAt(footContainer);
+        })
+
+
+    })
+ /*   require(['dojo/request','dojo/dom','dojo/_base/array','js/maincontent','dojo/domReady!'],function (request, dom, arrayUtil, maincontent) {
+        request('./admin/maindata.json', {
+            handleAs: 'json'
+        }).then(function (datas) {
+            console.log(datas);
+            var navContainer = dom.byId('main-head');
+
+            arrayUtil.forEach(datas, function (data) {
+                var widget = new  maincontent(data).placeAt(navContainer);
             })
         })
-    })
+    })*/
 
 
 

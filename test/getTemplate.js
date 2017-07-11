@@ -6,7 +6,7 @@ define([
     "dojo/_base/lang",
     "dijit/_WidgetBase",
     "dijit/_TemplatedMixin",
-    "dojo/text!../templates/template.html"
+    "dojo/text!./template.html"
 ],function (declare, lang, _WidgetBase, _TemplateMixin, template) {
     return declare([_WidgetBase, _TemplateMixin],{
         _onClick:lang.hitch(this,function () {
